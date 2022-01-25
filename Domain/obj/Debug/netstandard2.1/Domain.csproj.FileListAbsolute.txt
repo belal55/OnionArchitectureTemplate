@@ -1,0 +1,9 @@
+C:\Users\mdbel\source\repos\OnionArchitecture\Domain\bin\Debug\netstandard2.1\Domain.deps.json
+C:\Users\mdbel\source\repos\OnionArchitecture\Domain\bin\Debug\netstandard2.1\Domain.dll
+C:\Users\mdbel\source\repos\OnionArchitecture\Domain\bin\Debug\netstandard2.1\Domain.pdb
+C:\Users\mdbel\source\repos\OnionArchitecture\Domain\obj\Debug\netstandard2.1\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mdbel\source\repos\OnionArchitecture\Domain\obj\Debug\netstandard2.1\Domain.AssemblyInfoInputs.cache
+C:\Users\mdbel\source\repos\OnionArchitecture\Domain\obj\Debug\netstandard2.1\Domain.AssemblyInfo.cs
+C:\Users\mdbel\source\repos\OnionArchitecture\Domain\obj\Debug\netstandard2.1\Domain.csproj.CoreCompileInputs.cache
+C:\Users\mdbel\source\repos\OnionArchitecture\Domain\obj\Debug\netstandard2.1\Domain.dll
+C:\Users\mdbel\source\repos\OnionArchitecture\Domain\obj\Debug\netstandard2.1\Domain.pdb
