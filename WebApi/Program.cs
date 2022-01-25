@@ -2,23 +2,40 @@ using Application;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
+using Serilog;
+using Serilog.Sinks.MSSqlServer;
 
 var builder = WebApplication.CreateBuilder(args);
+
 
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddApplication();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+object p = builder.Services.AddSwaggerGen();
 
 var provider = builder.Services.BuildServiceProvider();
-var configuration = provider.GetService<IConfiguration>();
+//var configuration = provider.GetService<IConfiguration>();
 builder.Services.AddDbContext<ApplicationContext>(options =>
                 options.UseSqlServer(
-                    configuration.GetConnectionString("DefaultConnection"),
+                    builder.Configuration.GetConnectionString("DefaultConnection"),
                     b => b.MigrationsAssembly(typeof(ApplicationContext).Assembly.FullName)));
-builder.Services.AddPersistence(configuration);
+builder.Services.AddPersistence(builder.Configuration);
+
+
+var sinkOptions = new MSSqlServerSinkOptions
+{
+    AutoCreateSqlTable = true,
+    TableName = "Logs"
+};
+
+builder.Host.UseSerilog((ctx, lc) => lc
+.WriteTo.Console()
+.WriteTo.Seq("http://localhost:5341")
+.WriteTo.MSSqlServer(
+    builder.Configuration.GetConnectionString("DefaultConnection"),
+    sinkOptions: sinkOptions));
 
 #region API Versioning
 // Add API Versioning to the Project
