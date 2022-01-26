@@ -1,2 +1,7 @@
 # OnionArchitectureTemplate
-Onion architecture template with CQRS, MediatR, API Versioning
+Onion architecture clean template with 
+  -CQRS 
+  -MediatR
+  -API Versioning
+  -Serilog with cmd, seq and, mssql writing
+  -Seq
